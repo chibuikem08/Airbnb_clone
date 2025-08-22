@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Air-bnb Clone Website(index, Contact-us, Help-center, and login)">
+  <meta name="keywords" content="Air-bnb-Clone, Index clone, Contact-us-clone, Login clone, Help-center clone">
+  <title>Air bnb Index</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link rel="shortcut icon" href="images/Logo.svg" type="image/x-icon">
+  <style>
+    .Login-overlay{
+    position: fixed;
+    top: 0; left: 0;
+    background-color:rgb(0,0,0,0.5) ;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.form-general{
+    width: 35%; height: 500px;
+    background-color: white;
+    padding: 2%;
+    border-radius: 20px;
+    overflow-y: auto;
+    position: relative;
+    left: 33%;top: 50px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px rgb(0,0,0,0.5);
+}
+    .globe-become-overlay::-webkit-scrollbar{
+        display: none;
+    }
+    .form-general::-webkit-scrollbar{
+        display: none;
+    }
+    #hr-1{
+        width: 100%;
+    }
+    #country,#phone{
+        display: block;
+        padding: 2%;
+    }
+    #country{
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    #phone{
+        width: 96%;
+        border-radius: 5px;
+    }
+    a{
+        display: block;
+        color: #ff385c;
+    }
+    p{
+        text-wrap: wrap;
+        width: 100%;
+    }
+    .continue{
+        padding: 2%;
+        text-align: center;
+        color: white;
+        background-color: #ff385c;;
+        border-radius: 10px;
+    }
+    .line-text{
+        display: flex;
+    }
+    .line-text hr{
+        width: 50%;
+    }
+    .google,.apple,.facebook{
+        border: 1px solid rgb(0,0,0,0.5);
+        padding: 2%;
+        margin: 10px 0;
+        border-radius: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+    }
+    img{
+        width: 30px;
+    }
+    .form-general p{
+        opacity: 1;
+    }
+
+  </style>
+</head>
+<body>
+      <!-- Header Section -->
+    <header class="nav-header">
+        <!-- Nav bar -->
+      <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="images/Logo.svg" alt="Logo" class="logo">
+        </div>
+
+        <div class="nav-middle">
+          <div class="Homes">
+          <img src="icons/icons8-exterior-96.png" width="50"  height="50" alt="" srcset="" class="icon-img"> <span class="nav-homes">Homes</span> 
+          </div>
+          <div class="Expierences">
+            <img src="icons/icons8-hot-air-balloon-48.png" width="50" height="50" alt="" srcset="" class="icon-img"><span class="nav-exp">Expierences</span> 
+          </div>
+          <div class="Services">
+            <img src="icons/icons8-bellhop-bell-96.png" width="50" height="50" alt="" srcset="" class="icon-img"> <span class="nav-service">Services</span> 
+          </div>
+        </div>
+  
+        <div class="nav-last">
+          <div class="text">
+          <p>Become a host</p>
+          <div class="become-overlay">
+            <div class="become-general">
+                <div class="become-flex">
+                    <div class="become-home">
+                    <img src="icons/icons8-exterior-96.png" width="30"  height="30" alt="" srcset="" class="icon-img">
+                    </div>
+                    <div class="become-exp">
+                        <img src="icons/icons8-hot-air-balloon-48.png" width="30"  height="30" alt="" srcset="" class="icon-img">
+                    </div>
+                    <div class="become-service">
+                        <img src="icons/icons8-bellhop-bell-96.png" width="30"  height="30" alt="" srcset="" class="icon-img">
+                    </div>
+                </div>
+                <button type="button" class="become-btn">Next</button>
+            </div>
+          </div>
+        </div>
+        <div class="globe">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+          </svg>
+        </div>
+        <div class="toggle"><span class="bars"></span>
+          <div class="info-overlay">
+            <div class="info">
+              <div class="info-img-text">
+                <img src="icons/icons8-exterior-96.png" width="30"  height="30" alt="" srcset="" class="icon-img"><p>Help Center</p>
+              </div> 
+              <hr>
+              <p>
+                Become a Host
+                <br>
+                It's easy to start Hosting and earn extra income
+              </p>
+              <hr>
+              <p>Refer a Host <br>
+                Find Co-host <br>
+                Gift Cards
+              </p>
+              <hr>
+              <h4><a href="#" style="text-decoration: none;" id="login-link">Log in or Sing Up</a></h4>
+            </div>
+          </div>
+        </div>
+        </div>
+      </nav>
+       <!-- Desktop and Tab nav bar on scroll -->
+      <nav class="nav-on-Scroll">
+          <div class="navbar-logo">
+            <img src="images/Logo.svg" alt="Logo" class="logo">
+          </div>
+
+          <div class="search-nav-general">
+              <div class="homes-icon">
+                  <img src="icons/icons8-exterior-96.png" width="30"  height="30" alt="" srcset="" class="icon-img">
+              </div>
+              <div class="search-nav-item">
+                  <p>Anywhere</p>
+              </div>
+              <div class="search-nav-item">
+                  <p>Anytime</p>
+              </div>
+              <div class="search-nav-item">
+                  <p>Anyplace</p>
+              </div>
+              <div class="search-nav-div">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="desktop-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+              </div>
+          </div>
+
+          <div class="text">
+                <p>Become a host</p>
+          </div>
+          <div class="globe">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+              <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+            </svg>
+          </div>
+          <div class="toggle"><span class="bars"></span>
+            <div class="info-overlay">
+              <div class="info">
+                <p>Help Center</p> 
+                <hr>
+                <p>
+                  Become a Host
+                  <br>
+                  It's easy to start Hosting and earn extra income
+                </p>
+                <hr>
+                <p>Refer a Host <br>
+                  Find Co-host <br>
+                  Gift Cards
+                </p>
+                <hr>
+                <h4><a href="lsign-up.html">Log in or Sing Up</a></h4>
+              </div>
+            </div>
+          </div>
+      </nav>
+      <!-- Search bar container -->
+      <div class="search-container">
+        <div class="search-item">
+          <p>Where <span class="block-text">Search destination</span></p>
+        </div>
+        &vert;
+        <div class="search-item">
+          <p>Check In <span class="block-text">Set date</span></p>
+        </div>
+        &vert;
+        <div class="search-item">
+          <p>Check Out <span class="block-text">Set date</span></p>
+        </div>
+        &vert;
+        <div class="search-item">
+          <p>Who <span class="block-text">Add Guest</span></p> 
+        </div>
+        <div class="div">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+          </svg>
+        </div>
+      </div>
+    </header>
+          <!-- Phone nav bars -->
+    <!-- phone default nav bar-->
+      <nav class="phone-nav">
+          <div class="search-input">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="search" viewBox="0 0 16 16"> 
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+          </svg> Start your search
+          </div>
+          <div class="phone-flex">
+              <div class="Homes">
+              <img src="icons/icons8-exterior-96.png" width="30"  height="30" alt="" srcset="" class="icon-img"><span id="home">Homes</span>
+              </div>
+              <div class="Expierences">
+                  <img src="icons/icons8-hot-air-balloon-48.png" width="30"  height="30" alt="" srcset="" class="icon-img"><span id="expierence">Expierences</span>
+              </div>
+              <div class="Services">
+                  <img src="icons/icons8-bellhop-bell-96.png" width="30"  height="30" alt="" srcset="" class="icon-img"><span id="service">Services</span> 
+              </div>
+          </div>
+      </nav>
+    <!-- phone nav bar on scroll -->
+      <nav class="phone-nav-Scroll">
+        <div class="search-input">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="search-scroll" viewBox="0 0 16 16"> 
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg> Start your search
+        </div>
+        <div class="phone-scroll">
+            <div class="homes">
+              <p>Homes</p>
+            </div>
+            <div class="Expierences">
+              <p>Expierences</p>
+            </div>
+            <div class="Services">
+              <p>Services</p>
+            </div>
+        </div>
+      </nav>
+      <!-- Phone bottom nav bar -->
+      <nav class="bottom-nav">
+          <div class="general-nav-bottom">
+              <div class="bottom-nav-item">
+                <img src="icons/icons8-heart-50.png" alt="" srcset="">
+                  Explore
+              </div>
+              <div class="bottom-nav-item">
+                <img src="icons/icons8-reminders-64.png" alt="" srcset="">
+                  Wishlists
+              </div>
+              <div class="bottom-nav-item">
+                <img src="icons/icons8-profile-50.png" alt="" srcset="">
+                  login
+              </div>
+          </div>
+      </nav>
+      <!-- Login Form -->
+        <div class="Login-overlay">
+          <form action="#" class="form-general">
+              <h4>Login & Sign up</h4>
+              <hr id="hr-1">
+              <h3>Welcome to Airbnb</h3>
+              <select name="" id="country" class="form-select form-select-lg mb-3 xl-col-12 lg-col-12 md-col-12 sm-col-12">
+                  <option>Choose Country </option>
+                  <option value="USA" >America(+1)</option>
+                  <option value="ALB" >Albania(+355)</option>
+                  <option value="BNG">Bangadesh(+880) </option>
+                  <option value="CMR">Cameroon(+237)</option>
+                  <option value=" BHA">Bahamas(+2)</option>
+                  <option value=" EGY">Egypt(+20)</option>
+                  <option value="ETH" >Etheopia(+251)</option>
+                  <option value="FRC" >France(+33)</option>
+                  <option value="MOR" >Morocco(+212)</option>
+                  <option value="NGR" >Nigeria(+234)</option>
+              </select>
+              <input type="number" name="" id="phone" placeholder="Phone number" class="form-control form-control-lg mb-3">
+              <p> We’ll call or text you to confirm your number. Standard message nad data routes apply.  <a href="#">Privacy Policy</a></p> 
+          
+              <div class="continue bg-blue">
+                  continue
+              </div>
+              <div class="line-text">
+                  <hr>
+                  OR
+                  <hr>
+              </div>
+              <div class="google">
+                  <img src="icons/icons8-google-48.png" alt="">continue with Google
+              </div>
+              <div class="apple">
+                  <img src="icons/icons8-apple-inc-50.png" alt="">continue with Apple
+              </div>
+              <div class="facebook">
+                  <img src="icons/icons8-facebook-48.png" alt="">continue with Facebook
+              </div>
+          </form>
+       </div>
+
+      <!-- Main Section -->
+    <div class="main">
+      <div class="content">
+        <!-- Item row 1 -->
+         <h3> Popular Homes in Paris</h3>
+        <div class="items-container">
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img1.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img2.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img3.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img4.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img5.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+            
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img6.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img7.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img8.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+        </div>
+      </div>
+      <div class="content">
+          <!-- Item row 2 -->
+           <h3>Popular Homes in the United States</h3>
+        <div class="items-container">
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img9.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_10.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_11.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_12.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_13.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+            
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_14.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_15.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_16.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+        </div>
+      </div>
+      <div class="content">
+          <!-- Item row 3 -->
+           <h3>Popular Homes in the Maldives</h3>
+        <div class="items-container">
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_17.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_17.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_18.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_19.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_20.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+            
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_12.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_19.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_10.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+        </div>
+      </div>
+      <div class="content">
+          <!-- Item row 4 -->
+           <h3>Popular Homes in France</h3>
+        <div class="items-container">
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img9.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_13.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img3.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img5.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_15.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+            
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_17.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img2.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img6.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+        </div>
+      </div>
+      <div class="content">
+          <!-- Item row 5 -->
+           <h3>Popular Homes in Capetoem</h3>
+        <div class="items-container">
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_11.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img4.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+           <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_13.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_18.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_20.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_14.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img5.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_16.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+        </div>
+      </div>
+      <div class="content">
+          <!-- Item row 6 -->
+           <h3>Popular Homes in Lagos, Nigeria</h3>
+        <div class="items-container">
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_12.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img2.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img6.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img1.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_13.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+            
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_17.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_17.jpeg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+
+            <div class="item">
+              <div class="item-info">
+                <div class="info-div">
+                  <div class="item-text">Guest Favourite</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                </div>
+                <img src="images/img_19.jpg" alt="Bellaria-Igea Marina, Italy">
+              </div>
+                <p>Bellaria-Igea Marina, California <span>May 6-11 &dollar;800</span></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+       
+      <!-- Tabs Section -->
+    <swction class="tabs-section">
+        <h2>Inspiration for future gateway</h2>
+        <div class="tab-header">
+          <a class="item1"> Unique stays</a>
+          <a class="item2" >Categories</a>
+          <a class="item3">Travel Tips and Inspiration</a>
+          <a class="item4">Airbnb</a>
+        </div>
+        <hr>
+        <div class="indicator"></div>
+
+        <div class="dropdown-menu">
+          <!-- 1st tab content -->
+          <div class="dropdown-item">  
+            <div class="item"> 
+              <p><b>Cabins</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p class="small"><b>Treehouses</b><a href="#"><br>United states</a></p>
+            </div>
+
+            <div class="item">
+              <p><b>Glamping </b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p class="small"> <b>Tiny Houses</b><a href="#"><br>United states</a></p>
+            </div>
+
+            <div class="item"> 
+              <p class="small"> <b>Beach Houses</b><a href="#"><br>United states</a> </p>
+            </div>
+
+            <div class="item">
+                <p class="small"><b>Campers and RVs</b><a href="#"><br>United states</a></p>
+              </div>
+
+            <div class="item"> 
+            <p class="small"><b>Lakes Houses</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+            <p class="small"><b>Yurt Rentals</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p class="small"><b>House boats</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p class="small"><b>Campers and RVs</b><a href="#"><br>United states</a></p>
+            </div>
+
+            <div class="item" > 
+            <p class="small"><b>Lakes Houses</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+            <p class="small"><b>Yurt Rentals</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p class="small"> <b>House boats</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Campers and RVs</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p><b>Lakehouses</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p><b>Yurt Rentals</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Houseboats</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Campers and RVs</b><a href="#"><br>United Ststes</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Lakes Houses</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p><b>Yurt Rentals</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Houseboats</b><a href="#"><br>United States</a></p>
+            </div>
+          </div>
+          <!--2nd tab content  -->
+          <div class="dropdown-item">
+            <div class="item"> 
+              <p> <b>Amazing pools</b> </p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Arctic</b></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Camping</b></p>
+            </div>
+
+            <div class="item">
+              <p> <b>Campers</b></p>
+            </div>
+
+            <div class="item">
+              <p> <b>Casties</b></p>
+            </div>
+
+            <div class="item">
+              <p><b>Containers</b></p>
+            </div>
+
+            <div class="item">
+              <p> <b>Countryside</b></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Design</b></p>
+            </div>
+
+            <div class="item">
+              <p><b>Earth homes</b></p>
+            </div>
+
+            <div class="item">
+              <p><b>Farms</b></p>
+            </div>
+
+            <div class="item" >
+              <p> <b>National parks</b></p>
+            </div>
+
+            <div class="item">
+              <p><b>Vineyards</b></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>OMG!</b></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Tiny homes</b></p>
+            </div>
+
+            <div class="item">
+              <p><b>Tiny homes</b></p>
+            </div>
+
+            <div class="item">
+              <p><b>Windmills</b></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Luxe</b></p>
+            </div>
+          </div>
+          <!-- 3rd tab content -->
+          <div class="dropdown-item">
+            <div class="item">  
+              <p class="small"><b>Famaily taravel hub</b> <br>Tips and inspiration</p>
+            </div>
+
+            <div class="item"> 
+              <p class="small"><b>Family budget travel</b><br> United states</p>
+            </div>
+
+            <div class="item"> 
+              <p class="small"><b>Vacation ideals for any budget </b><br> make it special without making it spendy</p>
+            </div>
+
+            <div class="item"> 
+            <p class="small"><b>Travel Europe on alow budget</b> <br>how to take the kids to Europe for less</p>
+            </div>
+
+            <div class="item"> 
+            <p class="small"><b>Outdoor adventure</b><br> Explore nature with the family </p>
+            </div>
+
+            <div class="item">
+            <p class="small"><b>Bucket list national parks</b><br>Must-see park for the family travel</p>
+              </div>
+
+            <div class="item"> 
+            <p class="small"><b>Kid-friendly state parks</b><br>Check out these family-friendly hikes</p>
+            </div>
+          </div>
+          <!-- last tab contwnt -->
+          <div class="dropdown-item">  
+            <div class="item"> 
+              <p><b>Cabins</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p class="small"><b>Treehouses</b><a href="#"><br>United states</a></p>
+            </div>
+
+            <div class="item">
+              <p><b>Glamping </b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p class="small"> <b>Tiny Houses</b><a href="#"><br>United states</a></p>
+            </div>
+
+            <div class="item"> 
+              <p class="small"> <b>Beach Houses</b><a href="#"><br>United states</a> </p>
+            </div>
+
+            <div class="item">
+                <p class="small"><b>Campers and RVs</b><a href="#"><br>United states</a></p>
+              </div>
+
+            <div class="item"> 
+            <p class="small"><b>Lakes Houses</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+            <p class="small"><b>Yurt Rentals</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p class="small"><b>House boats</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p class="small"><b>Campers and RVs</b><a href="#"><br>United states</a></p>
+            </div>
+
+            <div class="item" > 
+            <p class="small"><b>Lakes Houses</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+            <p class="small"><b>Yurt Rentals</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p class="small"> <b>House boats</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Campers and RVs</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p><b>Lakehouses</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p><b>Yurt Rentals</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Houseboats</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Campers and RVs</b><a href="#"><br>United Ststes</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Lakes Houses</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item">
+              <p><b>Yurt Rentals</b><a href="#"><br>United States</a></p>
+            </div>
+
+            <div class="item"> 
+              <p><b>Houseboats</b><a href="#"><br>United States</a></p>
+            </div>
+          </div>
+        </div>
+    </swction>
+
+      <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-main">
+          <div class="footer-column">
+            <h3 class="footer-column-title">Support</h3>
+            <ul class="footer-column-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">AirCover</a></li>
+              <li><a href="#">Anti-discrimination</a></li>
+              <li><a href="#">Disability support</a></li>
+              <li><a href="#">Cancellation options</a></li>
+              <li><a href="#">Report neighborhood concern</a></li>
+            </ul>
+          </div>
+            <div class="footer-column">
+            <h3 class="footer-column-title">Hosting</h3>
+            <ul class="footer-column-links">
+              <li><a href="#">Airbnb your home</a></li>
+              <li><a href="#">AirCover for Hosts</a></li>
+              <li><a href="#">Hosting resources</a></li>
+              <li><a href="#">Community forum</a></li>
+              <li><a href="#">Hosting responsibly</a></li>
+              <li><a href="#">Airbnb-friendly apartments</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-column-title">Airbnb</h3>
+            <ul class="footer-column-links">
+              <li><a href="#">Newsroom</a></li>
+              <li><a href="#">New features</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Investors</a></li>
+              <li><a href="#">Gift cards</a></li>
+              <li><a href="#">Airbnb Luxe</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <p>© 2025 Airbnb, Inc.</p>
+            <div class="footer-legal-links">
+              <a href="#">Privacy</a>
+              <span class="dot">·</span>
+              <a href="#">Terms</a>
+              <span class="dot">·</span>
+              <a href="#">Sitemap</a>
+              <span class="dot">·</span>
+              <a href="#">Destinations</a>
+            </div>
+          </div>
+
+          <div class="footer-bottom-right">
+            <div class="language-selector">
+              <button class="language-selector-button">
+                <i class="fa-solid fa-globe""></i>
+                <span>English (US)</span>
+                <i class="fa-regular fa-dollar-sign"></i>
+              </button>
+            </div>
+
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i class="fa-brands fa-facebook"></i></a>
+              
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <H2 style="text-align: center;">Designed by Nwanguma Chibuikem </H2>
+    </footer>
+    <script src="script.js"></script>
+    <!-- <script src="bootstrap-5.3.7-dist/js/bootstrap.min.js"></script> -->
+</body>
+</html>

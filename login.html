@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link rel="stylesheet" href="bootstrap-5.3.7-dist/css/bootstrap.min.css">
+        <title>Airbnb-Sign up</title>
+        <link rel="shortcut icon" href="images/Logo.svg" type="image/x-icon">
+    </head>
+    <style>
+        .air-nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgb(0,0,0,0.5);
+            margin-bottom: 30px;
+            background-color: rgb(252, 252, 252);
+        }
+        .nav-right{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            font-size: small;
+            gap:10px;
+        }
+        #airbnb-logo{
+            width: 120px;
+        }
+        .two{
+            cursor: pointer;
+            background-color: whitesmoke;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .bars{
+        background: #222222;
+        display: inline-block;
+        height: 2px;
+        width: 18px;
+        position: relative;
+        right: -10.5px;
+        bottom: -5px;
+        align-items: center;
+    }
+    .bars::before,.bars::after{
+        background: #222222;
+        display: inline-block;
+        height: 2px;
+        width: 18px;
+        position: absolute;
+        content: "";
+    }
+    .bars::before{
+        top: 5px;
+    }
+    .bars::after{
+        top: -5px;
+    }
+    .toggle{
+        cursor: pointer;
+        background-color:whitesmoke;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+        .form-general{
+            width: 40%; height: 600px;
+            background-color: white;
+            padding: 2%;
+            border-radius: 10px;
+            overflow-y: auto;
+            position: relative;
+            left: 30%;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 5px rgb(0,0,0,0.5);
+        }
+        .globe-become-overlay::-webkit-scrollbar{
+            display: none;
+        }
+        .form-general::-webkit-scrollbar{
+            display: none;
+        }
+        #hr-1{
+            width: 100%;
+        }
+        #country,#phone{
+            display: block;
+            padding: 2%;
+        }
+        #country{
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        #phone{
+            width: 96%;
+            border-radius: 5px;
+        }
+        a{
+            display: block;
+            color: #ff385c;
+        }
+        p{
+            text-wrap: wrap;
+            width: 100%;
+        }
+        .continue{
+            padding: 2%;
+            text-align: center;
+            color: white;
+            background-color: #ff385c;;
+            border-radius: 10px;
+        }
+        .line-text{
+            display: flex;
+        }
+        .line-text hr{
+            width: 50%;
+        }
+        .google,.apple,.facebook{
+            border: 1px solid rgb(0,0,0,0.5);
+            padding: 2%;
+            margin: 10px 0;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+        }
+        img{
+            width: 30px;
+        }
+        p{
+            opacity: 1;
+        }
+        @media screen and (max-width: 568px) {
+            .form-general{
+                width: 80%;
+                position: relative;
+                left: 10%; top: 3%;
+            }
+        }
+    </style>
+    <body>
+        <nav class="air-nav">
+            <div class="nav-left">
+            <a href="index.html">
+                <img src="images/Logo.svg" alt="Logo" id="airbnb-logo">
+            </a>
+            </div>
+            <div class="nav-right">
+                <div class="text-one">
+                    <p>Become a Host</p>
+                </div>
+                <div class="two">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+                    </svg>           
+                </div>
+                <div class="toggle">
+                    <span class="bars"></span>
+                </div>
+                
+            </div>
+        </nav>
+        <form action="#" class="form-general">
+            <h4>Login & Sign up</h4>
+            <hr id="hr-1">
+            <h3>Welcome to Airbnb</h3>
+            <select name="" id="country" class="form-select form-select-lg mb-3 xl-col-12 lg-col-12 md-col-12 sm-col-12">
+                <option>Choose Country </option>
+                <option value="USA" >America(+1)</option>
+                <option value="ALB" >Albania(+355)</option>
+                <option value="BNG">Bangadesh(+880) </option>
+                <option value="CMR">Cameroon(+237)</option>
+                <option value=" BHA">Bahamas(+2)</option>
+                <option value=" EGY">Egypt(+20)</option>
+                <option value="ETH" >Etheopia(+251)</option>
+                <option value="FRC" >France(+33)</option>
+                <option value="MOR" >Morocco(+212)</option>
+                <option value="NGR" >Nigeria(+234)</option>
+            </select>
+            <input type="number" name="" id="phone" placeholder="Phone number" class="form-control form-control-lg mb-3">
+            <p> We’ll call or text you to confirm your number. Standard message nad data routes apply.  <a href="#">Privacy Policy</a></p> 
+        
+            <div class="continue bg-blue">
+                continue
+            </div>
+            <div class="line-text">
+                <hr>
+                OR
+                <hr>
+            </div>
+            <div class="google">
+                <img src="icons/icons8-google-48.png" alt="">continue with Google
+            </div>
+            <div class="apple">
+                <img src="icons/icons8-apple-inc-50.png" alt="">continue with Apple
+            </div>
+            <div class="facebook">
+                <img src="icons/icons8-facebook-48.png" alt="">continue with Facebook
+            </div>
+        </form>
+        
+        <script src="bootstrap-5.3.7-dist/js/bootstrap.min.js"></script>
+    </body>
+</html>
