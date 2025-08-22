@@ -795,3 +795,119 @@ li a:hover{
         padding: 20px;
     }
 }
+
+/*  small Phone view */
+@media screen and (max-width: 450pxpx) {
+    .header{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .more-option{
+        display: none;
+    }
+    .hero-section{
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .hero-section h1{
+        width: 200px;
+        font-size: larger;
+    }
+    .hero-section .input-search{
+        display: none;
+    }
+    .phone-input-search{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 300px;
+        background-color: #ebebeb;
+        padding: 15px 0px;
+        border-radius: 30px;
+        border: 1.5px solid #9e9d9d;
+        font-weight: bold;
+        opacity: 0.5;
+    }
+    .desktop-search{
+        color: #f12458;
+    }
+    h2{
+        padding-left:20px ;
+    }
+    .CTO-btn-alt{
+        margin: 20px 0px;
+        position: relative;
+        left: 40px;
+        width: 80%;
+    }
+    .about-section,.content-section, .article-section, .blog-section, .footer-container, footer{
+        margin: 0; padding: 0;
+        width: 100vw;
+    }
+    .about{
+        display: flex;
+        justify-content: center;
+        align-items: first baseline;
+        overflow-x: auto;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+    .content-container{
+        display: grid;
+        grid-template-columns: repeat(1, 100vw);
+    }
+    .article-card> .article-text{
+        font-size: large;
+        text-wrap: wrap;
+        width: 400px;
+        padding: 10px;
+    }
+    .content-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .article-container{
+        display: grid;
+        grid-template-columns: repeat(1, 100vw);
+    }
+    .blog-container{
+        display: flex;
+        justify-content: center;
+        align-items: first baseline;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+    }
+    .blog-div{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .blog-card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90vw;
+    }
+    .blog-image{
+        width: 150px;
+    }
+    .footer-container{
+        display: grid;
+        grid-template-columns: repeat(1, 2fr);
+        padding: 20px;
+    }
+}
