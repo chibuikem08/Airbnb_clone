@@ -1560,9 +1560,9 @@ footer {
     .tab-header{
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+        align-items:first baseline;
         gap: 20px;
-        overflow-x: auto;
+        flex-direction: column;
         width: 100%;
     }
     .tabs-section>.tab-header ~ .dropdown-menu .dropdown-item:nth-child(1){
@@ -1805,10 +1805,10 @@ footer {
     .tab-header{
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+        align-items:first baseline;
         gap: 20px;
-        overflow-x: auto;
-        width: 100vw;
+        flex-direction: column;
+        width: 100%;
     }
     .tab-header::-webkit-scrollbar{
         display: none;
