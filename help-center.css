@@ -617,6 +617,7 @@ li a:hover{
         width: 100%;
         display: flex;
         justify-content: flex-start;
+        align-items: center;
         gap: 30px;
         font-size: large;
     }
@@ -887,6 +888,12 @@ li a:hover{
         margin: 0; padding: 0;
         width: 100vw;
     }
+    .about-section{
+        overflow-x: auto;
+    }
+    .about-section::-webkit-scrollbar{
+        display: none;
+    }
     .about{
         display: flex;
         justify-content: space-evenly;
@@ -898,6 +905,7 @@ li a:hover{
     }
     .about div{
         width: 150px;
+        font-size: small;
     }
     .content-container{
         display: grid;
@@ -952,5 +960,8 @@ li a:hover{
         align-items: center;
         flex-direction: column;
         width: 100%;
+    }
+    .socials,.copyright{
+        font-size: small;
     }
 }
