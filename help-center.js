@@ -23,12 +23,14 @@ box.addEventListener("click", function(event) {
 
 let inputbtn = document.getElementById("input-Click");
 const menueBox = document.getElementById("Menue");
+const Input= document.getElementById('inputClick');
 
 function searchFunc(){
     menueBox.style.display = "block"; // displays the box
     inputbtn.style.boxShadow = "0 3px 30px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.1)"
     inputbtn.style.backgroundColor = "white"
     inputbtn.style.border = "none"
+    Input.style.backgroundColor="transparent"
     
     event.stopPropagation();
 }

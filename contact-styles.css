@@ -50,7 +50,7 @@ body{
     bottom: -5px;
     align-items: center;
 }
-.bars::before,.bars::after{
+.bars::before,.bars::after{ 
     background: #222222;
     display: inline-block;
     height: 2px;
