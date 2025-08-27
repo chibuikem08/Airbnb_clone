@@ -24,4 +24,4 @@
     function close_all_content(){
         All.style.display="none"
     }
-     Drop.addEventListener('click', close_all_content)
+    Drop.addEventListener('click', close_all_content)
