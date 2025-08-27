@@ -1401,6 +1401,7 @@ footer {
         width: 100%;
         align-items: center;
         margin-top: 2%;
+        font-size: 20px;
     }
     .phone-nav>.phone-flex>.Homes{
         position: relative;
@@ -1429,6 +1430,15 @@ footer {
     #home,#expierence,#service{
         display: block;
         text-align: center;
+    }
+    .Homes>img{
+        width: 60px; height: 60px;
+    }
+    .Expierences>img{
+        width: 60px; height: 60px;
+    }
+    .Services>img{
+        width: 60px; height: 60px;
     }
 
     /* Phone nav on Scroll */
@@ -1474,7 +1484,7 @@ footer {
         gap: 20px;
     }
     .phone-nav-Scroll>.phone-scroll{
-        font-size: 15px;
+        font-size: 20px;
     }
     /* Phone bottom nav */
     .bottom-nav{
@@ -1666,6 +1676,15 @@ footer {
     #home,#expierence,#service{
         display: block;
         text-align: center;
+    }
+    .Homes>img{
+        width: 60px; height: 60px;
+    }
+    .Expierences>img{
+        width: 60px; height: 60px;
+    }
+    .Services>img{
+        width: 60px; height: 60px;
     }
 
     /* Phone nav on Scroll */
