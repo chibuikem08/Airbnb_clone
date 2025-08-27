@@ -353,8 +353,9 @@ body {
 }
 .items-container>.item>.item-info>.info-div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: 35px;
     width: 100%;
     padding:10px;
     border-radius: 10px;
@@ -405,10 +406,11 @@ body {
   margin-right: 15px;
 }
 .bi-heart{
-     background-color:rgba(0, 0, 0, 0.5);
      object-fit: contain;
      color: white;
      border-radius: 50%;
+     width: 50px;
+     height: 25px;
 }
 
 
