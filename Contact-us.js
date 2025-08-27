@@ -21,3 +21,7 @@
         All.style.display="block"
     }
     Drop.addEventListener('click', show_all_content)
+    function close_all_content(){
+        All.style.display="none"
+    }
+     Drop.addEventListener('click', close_all_content)
